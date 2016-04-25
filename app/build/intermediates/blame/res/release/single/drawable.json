@@ -1,0 +1,162 @@
+[
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_list_selector_holo_light.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_list_selector_background_transition_holo_dark.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_edit_text_material.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_textfield_search_material.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_btn_check_material.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/background_switch_ball_uncheck.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/drawable/background_switch_ball_uncheck.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_btn_radio_material.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/about_javiertoro.png",
+        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/drawable/about_javiertoro.png"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/background_checkbox_uncheck.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/drawable/background_checkbox_uncheck.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/about_javiersantos.png",
+        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/drawable/about_javiersantos.png"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_dialog_material_background_dark.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_dialog_material_background_dark.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/ic_poland.png",
+        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/drawable/ic_poland.png"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/header_night.png",
+        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/drawable/header_night.png"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_btn_default_mtrl_shape.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/background_button_float.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/drawable/background_button_float.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/background_transparent.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/drawable/background_transparent.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_cab_background_internal_bg.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/fastscroller_rounded.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/drawable/fastscroller_rounded.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/ic_italy.png",
+        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/drawable/ic_italy.png"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_item_background_holo_light.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_item_background_holo_dark.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/fab_label_background.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/drawable/fab_label_background.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_spinner_textfield_background_material.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/shadow_down.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/drawable/shadow_down.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/banner_troll.png",
+        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/drawable/banner_troll.png"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_dialog_material_background_light.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_dialog_material_background_light.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/background_checkbox.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/drawable/background_checkbox.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/header_day.png",
+        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/drawable/header_day.png"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_switch_thumb_material.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/background_button.9.png",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/drawable/background_button.9.png"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/shadow_right.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/drawable/shadow_right.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_list_selector_background_transition_holo_light.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/background_checkbox_check.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/drawable/background_checkbox_check.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_list_selector_holo_dark.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_cab_background_top_material.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/background_button_rectangle.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/drawable/background_button_rectangle.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_ratingbar_full_material.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_ratingbar_full_material.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/background_progress.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/drawable/background_progress.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_btn_borderless_material.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/release/drawable/abc_tab_indicator_material.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/drawable/abc_tab_indicator_material.xml"
+    }
+]

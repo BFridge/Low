@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/navigation_up_light.png",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/net.rdrei.android.dirchooser/library/3.0/res/drawable-ldpi/navigation_up_light.png"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/navigation_up.png",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/net.rdrei.android.dirchooser/library/3.0/res/drawable-ldpi/navigation_up.png"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/md_nav_back.png",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.3/res/drawable-ldpi-v4/md_nav_back.png"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/sprite_check.png",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/drawable-ldpi-v4/sprite_check.png"
+    }
+]

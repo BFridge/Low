@@ -13,6 +13,7 @@ import java.util.Random;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Environment;
+import android.util.Log;
 
 public class Util {
 	public static final String SELF_PACKAGE_NAME = "com.mindmac.eagleeye";
@@ -110,15 +111,26 @@ public class Util {
 				ex.printStackTrace();
 			}
 	}
+
+    public static void addFrameworkLogAppUids(int targetUid){
+        Util.FRAMEWORK_UIDS_MAP.put(targetUid, true);
+    }
+
+    public static void removeFrameworkLogAppUtils(int removeUid){
+        Util.FRAMEWORK_UIDS_MAP.remove(removeUid);
+    }
 	
 	public static boolean isAppNeedNtLog(int uid){
 		return Util.NATIVE_UIDS_MAP.containsKey(uid);
 	}
 
 	public static boolean isAppNeedFrLog(int uid){
-		return Util.FRAMEWORK_UIDS_MAP.containsKey(uid);
+        return Util.FRAMEWORK_UIDS_MAP.containsKey(uid);
 	}
-	
+
+    public static boolean isAppMonitored(int uid){
+        return isAppNeedFrLog(uid) || isAppNeedNtLog(uid);
+    }
 
 	
 	public static String getSystemProperty(String propertyKey){

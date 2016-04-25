@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.mindmac.eagleeye.MainActivity" >
+    tools:context=".activity.MainActivity" >
 
     <item
         android:id="@+id/action_settings"
@@ -9,4 +9,3 @@
         android:title="@string/action_settings"/>
 
 </menu>
-<!-- From: file:/Users/Fridge/hook/EagleEye/app/src/main/res/menu/main.xml -->
