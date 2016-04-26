@@ -1,8 +1,16 @@
 package com.mindmac.eagleeye;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileDescriptor;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -11,19 +19,26 @@ import java.util.HashMap;
 import java.util.Random;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.content.res.AssetManager;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.util.Log;
+
+import com.mindmac.eagleeye.utils.SystemPropertiesProxy;
+import com.mindmac.eagleeye.utils.UtilsApp;
 
 public class Util {
 	public static final String SELF_PACKAGE_NAME = "com.mindmac.eagleeye";
-	public static final String LOG_TAG = "EagleEye";
+	public static final String LOG_TAG = "LOW";
 	
 	public static final String NATIVE_LIB = "eagleeyenative";
 	public static final String NATIVE_LIB_PATH = String.format("/data/data/%s/lib/lib%s.so", 
 		Util.SELF_PACKAGE_NAME, Util.NATIVE_LIB);
-	
-	// Native Hook
+
+
+
+    // Native Hook
 	public static final String NATIVE_UIDS_PROP_KEY = "rw.eagleeye.nt.uids";
 	public static final String CUSTOM_NATIVE_LIB_NAMES_CONFIG = "native_lib.config";
 	public static final HashMap<Integer, Boolean> NATIVE_UIDS_MAP = new 
@@ -99,7 +114,7 @@ public class Util {
 	}
 	
 	public static void storeFrameworkLogAppUids(){
-		String targetUids = getSystemProperty(Util.FRAMEWORK_UIDS_PROP_KEY);
+        String targetUids = SystemPropertiesProxy.get(Util.FRAMEWORK_UIDS_PROP_KEY);
 		if(targetUids != null)
 			try{
 				String[] targetUidArray = targetUids.split("\\|");
@@ -110,10 +125,43 @@ public class Util {
 			}catch(Exception ex){
 				ex.printStackTrace();
 			}
-	}
+        File configure = UtilsApp.getConfigureFile();
+        BufferedReader reader = null;
+        try{
+            reader = new BufferedReader(new FileReader(configure));
+            String data;
+            while((data = reader.readLine()) != null){
+                Util.FRAMEWORK_UIDS_MAP.put(Integer.parseInt(data), true);
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            if(reader != null)
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+        }
+    }
 
     public static void addFrameworkLogAppUids(int targetUid){
-        Util.FRAMEWORK_UIDS_MAP.put(targetUid, true);
+        File configure = UtilsApp.getConfigureFile();
+        BufferedWriter writer = null;
+        try{
+            writer = new BufferedWriter(new FileWriter(configure, true));
+            writer.write(Integer.toString(targetUid));
+            writer.newLine();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            if(writer!= null)
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+        }
     }
 
     public static void removeFrameworkLogAppUtils(int removeUid){

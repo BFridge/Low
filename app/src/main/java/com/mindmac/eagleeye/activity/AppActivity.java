@@ -9,6 +9,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
@@ -25,6 +26,7 @@ import com.mindmac.eagleeye.entity.AppInfo;
 import com.mindmac.eagleeye.entity.AppPreferences;
 import com.mindmac.eagleeye.utils.UtilsApp;
 
+import java.io.File;
 import java.util.Set;
 
 public class AppActivity extends BaseActivity implements SwitchCompat.OnCheckedChangeListener{
@@ -80,7 +82,7 @@ public class AppActivity extends BaseActivity implements SwitchCompat.OnCheckedC
         });
 
         monitor.setOnCheckedChangeListener(this);
-        monitor.setChecked(Util.isAppMonitored(appInfo.getUid()));
+        monitor.setChecked(UtilsApp.isAppConfigured(Integer.toString(appInfo.getUid())));
         icon.setImageDrawable(appInfo.getIcon());
         name.setText(appInfo.getName());
         apk.setText(appInfo.getAPK());
@@ -112,6 +114,15 @@ public class AppActivity extends BaseActivity implements SwitchCompat.OnCheckedC
                 }
             });
 
+            extract.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    File logFile = UtilsApp.getLogFile(appInfo.getAPK());
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setDataAndType(Uri.fromFile(logFile),"text/plain");
+                    startActivity(intent);
+                }
+            });
             uninstall.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

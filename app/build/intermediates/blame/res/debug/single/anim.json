@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
         "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
         "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/anim/abc_slide_in_top.xml"
     },
@@ -8,76 +12,28 @@
         "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/anim/slide_out_right.xml"
     },
     {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/fade_back.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/anim/fade_back.xml"
+    },
+    {
         "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/snackbar_hide_animation.xml",
         "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/anim/snackbar_hide_animation.xml"
-    },
-    {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/popup_exit.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.3/res/anim/popup_exit.xml"
-    },
-    {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/decelerate_cubic.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.3/res/anim/decelerate_cubic.xml"
-    },
-    {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/dialog_root_hide_amin.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/anim/dialog_root_hide_amin.xml"
     },
     {
         "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
         "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/anim/abc_shrink_fade_out_from_bottom.xml"
     },
     {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/fade_forward.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/anim/fade_forward.xml"
-    },
-    {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/popup_enter.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.3/res/anim/popup_enter.xml"
-    },
-    {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/dialog_main_hide_amination.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/anim/dialog_main_hide_amination.xml"
-    },
-    {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/anim/abc_grow_fade_in_from_bottom.xml"
-    },
-    {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/slide_in_right.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/anim/slide_in_right.xml"
-    },
-    {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/anim/abc_slide_in_bottom.xml"
-    },
-    {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/anim/abc_popup_exit.xml"
-    },
-    {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/snackbar_show_animation.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/anim/snackbar_show_animation.xml"
-    },
-    {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/progress_indeterminate_animation.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/anim/progress_indeterminate_animation.xml"
-    },
-    {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/dialog_root_show_amin.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/anim/dialog_root_show_amin.xml"
-    },
-    {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/anim/abc_slide_out_bottom.xml"
-    },
-    {
-        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/fade_back.xml",
-        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/anim/fade_back.xml"
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/dialog_root_hide_amin.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/anim/dialog_root_hide_amin.xml"
     },
     {
         "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
         "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/fade_forward.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/anim/fade_forward.xml"
     },
     {
         "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/dialog_main_show_amination.xml",
@@ -88,11 +44,43 @@
         "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/anim/abc_popup_enter.xml"
     },
     {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/dialog_main_hide_amination.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/anim/dialog_main_hide_amination.xml"
+    },
+    {
         "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
         "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/anim/abc_slide_out_top.xml"
     },
     {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/slide_in_right.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/src/main/res/anim/slide_in_right.xml"
+    },
+    {
         "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
         "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/dialog_root_show_amin.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/anim/dialog_root_show_amin.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/snackbar_show_animation.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/anim/snackbar_show_animation.xml"
+    },
+    {
+        "merged": "/Users/Fridge/hook/EagleEye/app/build/intermediates/res/merged/debug/anim/progress_indeterminate_animation.xml",
+        "source": "/Users/Fridge/hook/EagleEye/app/build/intermediates/exploded-aar/com.github.navasmdc/MaterialDesign/1.5/res/anim/progress_indeterminate_animation.xml"
     }
 ]

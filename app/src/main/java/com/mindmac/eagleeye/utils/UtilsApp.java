@@ -1,32 +1,25 @@
 package com.mindmac.eagleeye.utils;
 
-import android.Manifest;
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
-import android.support.v4.content.ContextCompat;
-import android.view.MenuItem;
+import android.support.annotation.NonNull;
 
+import com.mindmac.eagleeye.Util;
 import com.mindmac.eagleeye.application.LowApplication;
 import com.mindmac.eagleeye.entity.AppInfo;
 import com.mindmac.eagleeye.entity.AppPreferences;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Set;
 
 public class UtilsApp {
+    public static final String LOW_PATH = "/storage/emulated/legacy/LOW";
     private static final int MY_PERMISSIONS_REQUEST_WRITE_READ = 1;
 
     /**
@@ -225,6 +218,54 @@ public class UtilsApp {
         return res;
     }
 
+    @NonNull
+    public static File getLogFile(String packageName) {
+        File dir =  new File(LOW_PATH);
+        if(!dir.exists()) {
+            dir.mkdirs();
+        }
+
+        File logFile = new File(LOW_PATH,packageName + ".txt");
+        if(!logFile.exists()){
+            try {
+                logFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return logFile;
+    }
+
+    public static File getConfigureFile(){
+        return getLogFile("LOW_CONFIG");
+    }
+
+    public static boolean isAppConfigured(String uid){
+        File configure = getConfigureFile();
+        BufferedReader reader = null;
+        boolean result = false;
+        try{
+            reader = new BufferedReader(new FileReader(configure));
+            String data;
+            while((data = reader.readLine()) != null){
+                if(data.equals(uid)){
+                    result = true;
+                }
+            }
+            return false;
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            if(reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return result;
+        }
+    }
     /**
      * Save the app as hidden
      * @param context Context

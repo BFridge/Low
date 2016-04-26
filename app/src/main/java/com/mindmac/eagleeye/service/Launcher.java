@@ -3,9 +3,9 @@ package com.mindmac.eagleeye.service;
 import static de.robv.android.xposed.XposedHelpers.findClass;
 
 import com.mindmac.eagleeye.MethodParser;
-import com.mindmac.eagleeye.NativeEntry;
 import com.mindmac.eagleeye.Util;
 import com.mindmac.eagleeye.hookclass.*;
+import com.mindmac.eagleeye.utils.UtilsApp;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -29,7 +29,6 @@ import android.content.pm.ApplicationInfo;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Process;
-import android.text.TextUtils;
 import android.util.Log;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.IXposedHookZygoteInit;
@@ -46,7 +45,8 @@ public class Launcher implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	
 	private static XC_MethodHook xcMethodHookApp = null;
 	private static XC_MethodHook xcMethodHookSystem = null;
-	
+	private static File currentAPKlog = null;
+
 	// System services
 	private static boolean mAccountManagerHooked = false;
 	private static boolean mActivityManagerHooked = false;
@@ -285,6 +285,12 @@ public class Launcher implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 		// Hook customized apis
 		hookCustomizedSystemApis();
 		hookCustomizedAppApis(appInfo.packageName, lpparam.classLoader);
+
+        File outputFile = UtilsApp.getLogFile(appInfo.packageName);
+        Log.i("shitshit", "[Launcher] : abpath is " + outputFile.getAbsolutePath());
+        currentAPKlog = outputFile;
+        Runtime.getRuntime().exec("logcat -c");
+        Runtime.getRuntime().exec("logcat -v time -f " + outputFile.getAbsolutePath());
 		
 	}
 	
