@@ -38,8 +38,8 @@
     <string name="dialog_about_description">Developed by Javier Santos.\n\nOpen Source under GPLv3 license.</string>
     <string name="dialog_run">Open</string>
     <string name="dialog_run_description">Run this app now</string>
-    <string name="dialog_extract">Extract</string>
-    <string name="dialog_extract_description">Extract this app under \"MLManager\" directory</string>
+    <string name="dialog_extract">Statistic</string>
+    <string name="dialog_extract_description">Open this app LowLog under \"LowManager\" directory</string>
     <string name="dialog_extract_fail">Extract failed</string>
     <string name="dialog_extract_fail_description">Unable to extract this APK. Please, try to restart your device.</string>
     <string name="dialog_uninstall">Uninstall</string>

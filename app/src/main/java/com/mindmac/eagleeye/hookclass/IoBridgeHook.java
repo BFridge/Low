@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.mindmac.eagleeye.NativeEntry;
 import com.mindmac.eagleeye.Util;
+import com.mindmac.eagleeye.utils.LowLog;
 
 
 import android.os.Binder;
@@ -98,7 +99,7 @@ public class IoBridgeHook extends MethodHook {
 			        String logMsg = String.format("{\"Basic\"[\"%d\",\"%d\",\"false\"]," +
 			        		"\"FileRW\":{ \"operation\": \"read\",\"data\": \"%s\", \"id\": \"%d\"}}",
 			        		uid, Util.FRAMEWORK_HOOK_SYSTEM_API, Util.toHex(dataSlices.get(i)), fdId);
-					Log.i(Util.LOG_TAG, logMsg);
+					LowLog.i(Util.LOG_TAG, logMsg);
 		        }
 		        		        
 			}
@@ -115,7 +116,7 @@ public class IoBridgeHook extends MethodHook {
 		        	String logMsg = String.format("{\"Basic\"[\"%d\",\"%d\",\"false\"]," +
 			        		"\"FileRW\":{ \"operation\": \"write\", \"data\": \"%s\", \"id\": \"%d\"}}",
 			        		uid, Util.FRAMEWORK_HOOK_SYSTEM_API, Util.toHex(dataSlices.get(i)), fdId);
-					Log.i(Util.LOG_TAG, logMsg);
+					LowLog.i(Util.LOG_TAG, logMsg);
 		        }
 			}
 		}

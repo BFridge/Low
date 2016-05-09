@@ -5,6 +5,7 @@ import static de.robv.android.xposed.XposedHelpers.findClass;
 import com.mindmac.eagleeye.MethodParser;
 import com.mindmac.eagleeye.Util;
 import com.mindmac.eagleeye.hookclass.*;
+import com.mindmac.eagleeye.utils.LowLog;
 import com.mindmac.eagleeye.utils.UtilsApp;
 
 import java.io.BufferedReader;
@@ -45,7 +46,7 @@ public class Launcher implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	
 	private static XC_MethodHook xcMethodHookApp = null;
 	private static XC_MethodHook xcMethodHookSystem = null;
-	private static File currentAPKlog = null;
+    public static File currentAPKlog = null;
 
 	// System services
 	private static boolean mAccountManagerHooked = false;
@@ -286,15 +287,25 @@ public class Launcher implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 		hookCustomizedSystemApis();
 		hookCustomizedAppApis(appInfo.packageName, lpparam.classLoader);
 
-        File outputFile = UtilsApp.getLogFile(appInfo.packageName);
-        Log.i("shitshit", "[Launcher] : abpath is " + outputFile.getAbsolutePath());
-        currentAPKlog = outputFile;
-        Runtime.getRuntime().exec("logcat -c");
-        Runtime.getRuntime().exec("logcat -v time -f " + outputFile.getAbsolutePath());
+        hookConfigure(appInfo);
 		
 	}
-	
-	// Hook customized system apis
+
+    /**
+     * configure log io and monkey
+     *
+     * @param appInfo
+     * @throws IOException
+     */
+    private void hookConfigure(ApplicationInfo appInfo) throws IOException {
+        File outputFile = UtilsApp.getLogFile(appInfo.packageName);
+        Log.i("shitshit", "[Launcher] : abpath is " + outputFile.getAbsolutePath());
+        Util.currentLogFile = outputFile;
+//        Runtime.getRuntime().exec("logcat -c");
+//        Runtime.getRuntime().exec("logcat -v time -f " + outputFile.getAbsolutePath());
+    }
+
+    // Hook customized system apis
 	private static void hookCustomizedSystemApis(){
 		File systemApiConfigFile = new File(String.format("/data/local/tmp/%s", 
 				Util.FRAMEWORK_SYSTEM_API_HOOK_CONFIG));
@@ -691,7 +702,7 @@ public class Launcher implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 				"\"InvokeApi\":{\"%s;->%s\":[%s], \"return\":{%s}}}}", 
 				uid, hookType, className, methodName, argsValue, returnValue);
 
-		Log.i(Util.LOG_TAG, logMsg);
+		LowLog.i(Util.LOG_TAG, logMsg);
 	}
 	
 	// Hook android.os.Build's fields

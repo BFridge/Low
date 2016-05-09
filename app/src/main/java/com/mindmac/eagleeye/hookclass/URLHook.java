@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.mindmac.eagleeye.MethodParser;
 import com.mindmac.eagleeye.Util;
+import com.mindmac.eagleeye.utils.LowLog;
 
 
 import android.os.Binder;
@@ -56,7 +57,7 @@ public class URLHook extends MethodHook {
 		String returnValue = MethodParser.parseReturnValue(param);
 		String logMsg = String.format("{\"Basic\":[\"%d\", \"%d\",\"false\"], \"InvokeApi\":{\"%s->%s\":{\"url\":\"%s\"},\"return\":[%s]}}", 
 				uid, Util.FRAMEWORK_HOOK_SYSTEM_API, this.getClassName(), this.getMethodName(), urlStr, returnValue);
-		Log.i(Util.LOG_TAG, logMsg);
+		LowLog.i(Util.LOG_TAG, logMsg);
 	}
 	
 }

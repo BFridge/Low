@@ -35,6 +35,7 @@ public class Util {
 	public static final String NATIVE_LIB = "eagleeyenative";
 	public static final String NATIVE_LIB_PATH = String.format("/data/data/%s/lib/lib%s.so", 
 		Util.SELF_PACKAGE_NAME, Util.NATIVE_LIB);
+    public static File currentLogFile;
 
 
 

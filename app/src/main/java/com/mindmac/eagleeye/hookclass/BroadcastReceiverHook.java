@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.mindmac.eagleeye.MethodParser;
 import com.mindmac.eagleeye.Util;
+import com.mindmac.eagleeye.utils.LowLog;
 
 import android.content.BroadcastReceiver;
 import android.os.Binder;
@@ -58,6 +59,6 @@ public class BroadcastReceiverHook extends MethodHook {
 		String logMsg = String.format("{\"Basic\":[\"%d\",\"%d\",\"false\"], " +
 				"\"InvokeApi\":{\"%s->%s\":{\"broadcastReceiver\":\"%s\"},\"return\":[%s]}}", 
 				uid, Util.FRAMEWORK_HOOK_SYSTEM_API, this.getClassName(), this.getMethodName(), receiverStr, returnValue);
-		Log.i(Util.LOG_TAG, logMsg);
+		LowLog.i(Util.LOG_TAG, logMsg);
 	}
 }

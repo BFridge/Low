@@ -291,8 +291,8 @@
     <string name="dialog_clear_data_description">Remove all application data for this app</string>
     <string name="dialog_clear_data_success">Data deleted</string>
     <string name="dialog_clear_data_success_description">All data for %s has been removed</string>
-    <string name="dialog_extract">Extract</string>
-    <string name="dialog_extract_description">Extract this app under \"MLManager\" directory</string>
+    <string name="dialog_extract">Statistic</string>
+    <string name="dialog_extract_description">Open this app LowLog under \"LowManager\" directory</string>
     <string name="dialog_extract_fail">Extract failed</string>
     <string name="dialog_extract_fail_description">Unable to extract this APK. Please, try to restart your device.</string>
     <string name="dialog_permissions">Permissions are required</string>

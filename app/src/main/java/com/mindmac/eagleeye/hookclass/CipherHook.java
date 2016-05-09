@@ -8,6 +8,7 @@ import java.util.List;
 import javax.crypto.Cipher;
 
 import com.mindmac.eagleeye.Util;
+import com.mindmac.eagleeye.utils.LowLog;
 
 import android.os.Binder;
 import android.util.Log;
@@ -99,7 +100,7 @@ public class CipherHook extends MethodHook {
 			String msg = String.format("{\"Basic\":[\"%d\",\"%d\",\"false\"], \"CryptoUsage\":{\"plaintext\":" +
 					"\"%s\",\"encrypttext\":\"%s\", \"operation\":\"%s\",\"algorithm\":\"%s\",\"id\":\"%d\" }}", 
 					uid, Util.FRAMEWORK_HOOK_SYSTEM_API, plainText, encryptText, operation, algorithm, id);
-			Log.i(Util.LOG_TAG, msg);
+			LowLog.i(Util.LOG_TAG, msg);
 		}
 		
 		for(int i=minSize; i<maxSize; i++){
@@ -115,7 +116,7 @@ public class CipherHook extends MethodHook {
 			String msg = String.format("{\"Basic\":[\"%d\",\"%d\",\"false\"], \"CryptoUsage\":{\"plaintext\":" +
 					"\"%s\",\"encrypttext\":\"%s\", \"operation\":\"%s\",\"algorithm\":\"%s\",\"id\":\"%d\" }}", 
 					uid, Util.FRAMEWORK_HOOK_SYSTEM_API, plainText, encryptText, operation, algorithm, id);
-			Log.i(Util.LOG_TAG, msg);
+			LowLog.i(Util.LOG_TAG, msg);
 		}
 	}
 	

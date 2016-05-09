@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mindmac.eagleeye.Util;
+import com.mindmac.eagleeye.utils.LowLog;
 
 
 import android.os.Binder;
@@ -71,6 +72,6 @@ public class SecretKeySpecHook extends MethodHook {
 				"{\"operation\": \"keyalgo\", \"key\": \"%s\", \"algorithm\": \"%s\"}}", 
 				uid, Util.FRAMEWORK_HOOK_SYSTEM_API, k, algorithm);
 		
-		Log.i(Util.LOG_TAG, logMsg);
+		LowLog.i(Util.LOG_TAG, logMsg);
 	}
 }

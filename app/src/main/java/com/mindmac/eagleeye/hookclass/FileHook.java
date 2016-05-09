@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.mindmac.eagleeye.MethodParser;
 import com.mindmac.eagleeye.Util;
+import com.mindmac.eagleeye.utils.LowLog;
 
 import android.os.Binder;
 import android.util.Log;
@@ -72,7 +73,7 @@ public class FileHook extends MethodHook {
 			String returnValue = MethodParser.parseReturnValue(param);
 			String logMsg = String.format("{\"Basic\":[\"%d\", \"%s\",\"false\"], \"InvokeApi\":{\"%s->%s\":{\"file\":\"%s\"},\"return\":[%s]}}", 
 					uid, Util.FRAMEWORK_HOOK_SYSTEM_API, this.getClassName(), this.getMethodName(), filePath, returnValue);
-			Log.i(Util.LOG_TAG, logMsg);
+			LowLog.i(Util.LOG_TAG, logMsg);
 		}
 	}
 	
