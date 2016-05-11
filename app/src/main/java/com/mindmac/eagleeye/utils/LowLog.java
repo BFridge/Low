@@ -1,11 +1,6 @@
 package com.mindmac.eagleeye.utils;
 
-import android.util.Log;
-import android.widget.Toast;
-
-import com.gc.materialdesign.utils.Utils;
 import com.mindmac.eagleeye.Util;
-import com.mindmac.eagleeye.service.Launcher;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -23,7 +18,7 @@ public class LowLog {
 
     private static File logFile = null;
     public static void i(String tag, String s) {
-        if(s.contains(UtilsApp.LOW_PATH)){
+        if(s.contains(AppUtils.LOW_PATH)){
             //filter out Low self
             return;
         }

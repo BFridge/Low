@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        name="com.mindmac.eagleeye.application.LowApplication"
         android:name="com.android.tools.fd.runtime.BootstrapApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"

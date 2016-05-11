@@ -12,6 +12,8 @@ import android.widget.ListView;
 import com.mindmac.eagleeye.R;
 import com.mindmac.eagleeye.adpater.AppListAdapter;
 import com.mindmac.eagleeye.entity.AppInfo;
+import com.mindmac.eagleeye.entity.AppPreferences;
+import com.mindmac.eagleeye.utils.AppUtils;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.util.ArrayList;
@@ -100,6 +102,7 @@ public class AppListActivity extends BaseActivity {
                             e.printStackTrace();
                         }
                     }
+//                    AppUtils.setAllAppList(appList); //maybe oneday i want to use it
 //                    else {
 
 //                        try {

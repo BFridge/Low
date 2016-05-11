@@ -19,7 +19,7 @@ import com.mindmac.eagleeye.Util;
 import com.mindmac.eagleeye.application.LowApplication;
 import com.mindmac.eagleeye.entity.AppInfo;
 import com.mindmac.eagleeye.entity.AppPreferences;
-import com.mindmac.eagleeye.utils.UtilsApp;
+import com.mindmac.eagleeye.utils.AppUtils;
 
 import java.io.File;
 import java.util.Set;
@@ -77,7 +77,7 @@ public class AppActivity extends BaseActivity implements SwitchCompat.OnCheckedC
         });
 
         monitor.setOnCheckedChangeListener(this);
-        monitor.setChecked(UtilsApp.isAppConfigured(Integer.toString(appInfo.getUid())));
+        monitor.setChecked(AppUtils.isAppConfigured(Integer.toString(appInfo.getUid())));
         icon.setImageDrawable(appInfo.getIcon());
         name.setText(appInfo.getName());
         apk.setText(appInfo.getAPK());
@@ -91,7 +91,7 @@ public class AppActivity extends BaseActivity implements SwitchCompat.OnCheckedC
             googleplay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    UtilsApp.goToGooglePlay(AppActivity.this, appInfo.getAPK());
+                    AppUtils.goToGooglePlay(AppActivity.this, appInfo.getAPK());
                 }
             });
 
@@ -112,7 +112,7 @@ public class AppActivity extends BaseActivity implements SwitchCompat.OnCheckedC
             extract.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    File logFile = UtilsApp.getLogFile(appInfo.getAPK());
+                    File logFile = AppUtils.getLogFile(appInfo.getAPK());
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setDataAndType(Uri.fromFile(logFile),"text/plain");
                     startActivity(intent);

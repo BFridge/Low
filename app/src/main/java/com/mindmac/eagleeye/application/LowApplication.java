@@ -15,7 +15,6 @@ public class LowApplication extends Application{
     public void onCreate() {
         super.onCreate();
         sAppPreferences = new AppPreferences(this);
-        OkHttpUtils.getInstance().debug("testDebug");
     }
 
     public static AppPreferences getAppPreferences() {

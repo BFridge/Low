@@ -5,8 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 
-import com.mindmac.eagleeye.R;
-import com.mindmac.eagleeye.utils.UtilsApp;
+import com.mindmac.eagleeye.utils.AppUtils;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,6 +23,7 @@ public class AppPreferences {
     public static final String KeyWatchedApp = "preWatchedApp";
     public static final String KeyCustomPath = "preCustomPath";
     public static final String KeyCustomFilename = "preCustomFileName";
+    public static final String KeyAllApps = "preAllApps";
 
     public AppPreferences(Context context) {
         this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -40,6 +40,17 @@ public class AppPreferences {
         editor.commit();
     }
 
+
+    public Set<String> getAppList() {
+        return sharedPreferences.getStringSet(KeyAllApps, new HashSet<String>());
+    }
+
+    public void setAppList(Set<String> allApps) {
+        editor.remove(KeyAllApps);
+        editor.commit();
+        editor.putStringSet(KeyAllApps, allApps);
+        editor.commit();
+    }
 
     public Set<String> getFavoriteApps() {
         return sharedPreferences.getStringSet(KeyFavoriteApps, new HashSet<String>());
@@ -75,7 +86,7 @@ public class AppPreferences {
     }
 
     public String getCustomPath() {
-        return sharedPreferences.getString(KeyCustomPath, UtilsApp.getDefaultAppFolder().getPath());
+        return sharedPreferences.getString(KeyCustomPath, AppUtils.getDefaultAppFolder().getPath());
     }
 
     public void setCustomPath(String path) {

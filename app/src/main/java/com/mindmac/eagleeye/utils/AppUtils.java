@@ -13,12 +13,17 @@ import com.mindmac.eagleeye.entity.AppInfo;
 import com.mindmac.eagleeye.entity.AppPreferences;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-public class UtilsApp {
+public class AppUtils {
     public static final String LOW_PATH = "/storage/emulated/legacy/LOW";
     private static final int MY_PERMISSIONS_REQUEST_WRITE_READ = 1;
 
@@ -39,6 +44,25 @@ public class UtilsApp {
         return new File(appPreferences.getCustomPath());
     }
 
+    //// TODO: 16/5/11  I find a better way in ShellUtils
+    public static Set<String> getAllAppList(){
+        AppPreferences appPreferences = LowApplication.getAppPreferences();
+        return new HashSet<>(appPreferences.getAppList());
+    }
+
+    public static void setAllAppList(Set<String> appList){
+        AppPreferences appPreferences = LowApplication.getAppPreferences();
+        appPreferences.setAppList(appList);
+    }
+
+    public static void setAllAppList(List<AppInfo> appInfoList){
+        HashSet<String> temp = new HashSet<>();
+        for (AppInfo appInfo : appInfoList) {
+            temp.add(appInfo.getAPK());
+        }
+        setAllAppList(temp);
+    }
+     // TODO: 16/5/11
 //    public static Boolean copyFile(AppInfo appInfo) {
 //        Boolean res = false;
 //

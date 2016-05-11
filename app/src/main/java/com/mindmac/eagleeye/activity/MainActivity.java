@@ -15,12 +15,17 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.mindmac.eagleeye.R;
+import com.mindmac.eagleeye.Util;
 import com.mindmac.eagleeye.entity.LogEntity;
+import com.mindmac.eagleeye.utils.AppUtils;
+import com.mindmac.eagleeye.utils.ShellUtils;
+import com.mindmac.eagleeye.utils.SystemPropertiesProxy;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.builder.OkHttpRequestBuilder;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import okhttp3.Call;
 
@@ -32,7 +37,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private ListView mainList;
     private WelcomeItem item_app_list = new WelcomeItem("App设置", "查看和设置监控开关");
     private WelcomeItem item_test = new WelcomeItem("测试","测试");
-
+    private WelcomeItem item_shell_test = new WelcomeItem("shell测试","运行shell命令");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +86,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             itemArrayList = new ArrayList<>();
             itemArrayList.add(item_app_list);
             itemArrayList.add(item_test);
+            itemArrayList.add(item_shell_test);
 
         }
 
@@ -123,6 +129,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             startActivity(intent);
         }else if(item == item_test){
             test();
+        }else if(item == item_shell_test){
+            ShellUtils.execSuCmd("setprop " + Util.IGNORE_UIDS_PROP_KEY + " true");
+            Toast.makeText(MainActivity.this, "值测试：" + SystemPropertiesProxy.getBoolean(Util.IGNORE_UIDS_PROP_KEY, false), Toast.LENGTH_SHORT).show();
+//            Set<String> apkList = AppUtils.getAllAppList();
+            ShellUtils.monkeyApp(100);
         }
     }
     
@@ -151,4 +162,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                     }
                 });
     }
+
+
 }

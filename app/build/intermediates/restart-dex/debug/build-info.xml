@@ -4,26 +4,26 @@
     api-level="19"
     density="xxhdpi"
     format="7"
-    timestamp="140897920930568" >
+    timestamp="165852587879960" >
 
     <task
         name="javac"
-        duration="492" />
+        duration="1024" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="27" />
+        duration="74" />
     <task
         name="verifier"
-        duration="1" />
+        duration="7" />
 
     <artifact
         location="/Users/Fridge/hook/EagleEye/app/build/outputs/apk/app-debug.apk"
         type="MAIN" />
 
-    <build timestamp="140897920930568" >
+    <build timestamp="165852587879960" >
         <artifact
             location="/Users/Fridge/hook/EagleEye/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />

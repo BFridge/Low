@@ -4,13 +4,11 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileDescriptor;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -19,14 +17,11 @@ import java.util.HashMap;
 import java.util.Random;
 
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
 import android.content.res.AssetManager;
 import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.mindmac.eagleeye.utils.SystemPropertiesProxy;
-import com.mindmac.eagleeye.utils.UtilsApp;
+import com.mindmac.eagleeye.utils.AppUtils;
 
 public class Util {
 	public static final String SELF_PACKAGE_NAME = "com.mindmac.eagleeye";
@@ -36,6 +31,8 @@ public class Util {
 	public static final String NATIVE_LIB_PATH = String.format("/data/data/%s/lib/lib%s.so", 
 		Util.SELF_PACKAGE_NAME, Util.NATIVE_LIB);
     public static File currentLogFile;
+    //if this systemp prop is true , then Low will watch all app
+    public static final String IGNORE_UIDS_PROP_KEY = "ignore_uids";
 
 
 
@@ -126,7 +123,7 @@ public class Util {
 			}catch(Exception ex){
 				ex.printStackTrace();
 			}
-        File configure = UtilsApp.getConfigureFile();
+        File configure = AppUtils.getConfigureFile();
         BufferedReader reader = null;
         try{
             reader = new BufferedReader(new FileReader(configure));
@@ -147,7 +144,7 @@ public class Util {
     }
 
     public static void addFrameworkLogAppUids(int targetUid){
-        File configure = UtilsApp.getConfigureFile();
+        File configure = AppUtils.getConfigureFile();
         BufferedWriter writer = null;
         try{
             writer = new BufferedWriter(new FileWriter(configure, true));
@@ -174,6 +171,9 @@ public class Util {
 	}
 
 	public static boolean isAppNeedFrLog(int uid){
+        if(SystemPropertiesProxy.getBoolean(IGNORE_UIDS_PROP_KEY, false)){
+            return true;
+        }
         return Util.FRAMEWORK_UIDS_MAP.containsKey(uid);
 	}
 
@@ -250,29 +250,7 @@ public class Util {
 		}
 	}
 	
-//	public static void execSuCmd(String cmd){
-//		Process process = null;
-//        OutputStream out = null;
-//        
-//        try {
-//            process = Runtime.getRuntime().exec("su");
-//            out = process.getOutputStream();
-//            out.write((cmd + "\n").getBytes());
-//            out.write("exit\n".getBytes());
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        } catch (Exception ex) {
-//           ex.printStackTrace();
-//        } finally {
-//            try {
-//                out.flush();
-//                out.close();
-//            } catch (Exception ex) {
-//               ex.printStackTrace();
-//            }
-//        }
-//	}
-	
+
 	public static String parseParameterTypes(Method method) {
 		String parameterTypes = "";
 		for (Class<?> parameterClass : method.getParameterTypes())

@@ -6,7 +6,7 @@ import com.mindmac.eagleeye.MethodParser;
 import com.mindmac.eagleeye.Util;
 import com.mindmac.eagleeye.hookclass.*;
 import com.mindmac.eagleeye.utils.LowLog;
-import com.mindmac.eagleeye.utils.UtilsApp;
+import com.mindmac.eagleeye.utils.AppUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -298,7 +298,7 @@ public class Launcher implements IXposedHookLoadPackage, IXposedHookZygoteInit {
      * @throws IOException
      */
     private void hookConfigure(ApplicationInfo appInfo) throws IOException {
-        File outputFile = UtilsApp.getLogFile(appInfo.packageName);
+        File outputFile = AppUtils.getLogFile(appInfo.packageName);
         Log.i("shitshit", "[Launcher] : abpath is " + outputFile.getAbsolutePath());
         Util.currentLogFile = outputFile;
 //        Runtime.getRuntime().exec("logcat -c");
