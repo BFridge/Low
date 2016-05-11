@@ -130,7 +130,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }else if(item == item_test){
             test();
         }else if(item == item_shell_test){
-            ShellUtils.execSuCmd("setprop " + Util.IGNORE_UIDS_PROP_KEY + " true");
+            ShellUtils.setProp(Util.IGNORE_UIDS_PROP_KEY, true);
             Toast.makeText(MainActivity.this, "值测试：" + SystemPropertiesProxy.getBoolean(Util.IGNORE_UIDS_PROP_KEY, false), Toast.LENGTH_SHORT).show();
 //            Set<String> apkList = AppUtils.getAllAppList();
             ShellUtils.monkeyApp(100);

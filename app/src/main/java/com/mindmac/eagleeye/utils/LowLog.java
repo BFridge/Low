@@ -18,7 +18,7 @@ public class LowLog {
 
     private static File logFile = null;
     public static void i(String tag, String s) {
-        if(s.contains(AppUtils.LOW_PATH)){
+        if(s.contains(SystemPropertiesProxy.get(AppUtils.LOW_PATH))){
             //filter out Low self
             return;
         }

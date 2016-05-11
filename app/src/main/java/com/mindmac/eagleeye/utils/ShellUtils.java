@@ -5,6 +5,7 @@ import android.util.Log;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Collection;
+import java.util.Objects;
 
 /**
  * Created by Fridge on 16/5/11.
@@ -39,6 +40,11 @@ public class ShellUtils {
      */
     public static void monkeyApp(int randomTimes){
         String cmd = "for app in $(ls /data/data)\ndo\nmonkey -p $app -v " + randomTimes + "\ndone";
+        execSuCmd(cmd);
+    }
+
+    public static void setProp(String key, Object value){
+        String cmd = String.format("setprop %s %s",key,value);
         execSuCmd(cmd);
     }
 }

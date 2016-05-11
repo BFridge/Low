@@ -11,6 +11,7 @@ import com.mindmac.eagleeye.Util;
 import com.mindmac.eagleeye.application.LowApplication;
 import com.mindmac.eagleeye.entity.AppInfo;
 import com.mindmac.eagleeye.entity.AppPreferences;
+import com.mindmac.eagleeye.hookclass.SystemPropertiesHook;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,7 +25,7 @@ import java.util.List;
 import java.util.Set;
 
 public class AppUtils {
-    public static final String LOW_PATH = "/storage/emulated/legacy/LOW";
+    public static String LOW_PATH = "lowPath";
     private static final int MY_PERMISSIONS_REQUEST_WRITE_READ = 1;
 
     /**
@@ -244,12 +245,12 @@ public class AppUtils {
 
     @NonNull
     public static File getLogFile(String packageName) {
-        File dir =  new File(LOW_PATH);
+        File dir =  new File(SystemPropertiesProxy.get(LOW_PATH));
         if(!dir.exists()) {
             dir.mkdirs();
         }
 
-        File logFile = new File(LOW_PATH,packageName + ".txt");
+        File logFile = new File(SystemPropertiesProxy.get(LOW_PATH),packageName + ".txt");
         if(!logFile.exists()){
             try {
                 logFile.createNewFile();
