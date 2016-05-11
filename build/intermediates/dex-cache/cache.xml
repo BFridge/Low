@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/Fridge/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/1.7.2/112366d8158749e25532ebce162232c6e0fb20a5/gson-1.7.2.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="112366d8158749e25532ebce162232c6e0fb20a5">
+        <dex dex="/Users/Fridge/hook/EagleEye/app/build/intermediates/pre-dexed/debug/gson-1.7.2_585f0a410482e1a71ae57cab72beae1edfe01483.jar" />
+    </item>
+
+</items>

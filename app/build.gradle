@@ -42,4 +42,7 @@ dependencies {
 //    compile 'commons-io:commons-io:2.4'
 //    compile('com.github.afollestad.material-dialogs:core:0.8.5.3@aar') { transitive = true; }
 //    compile('com.github.afollestad.material-dialogs:commons:0.8.5.3@aar') { transitive = true; }
+    compile 'com.zhy:okhttputils:2.4.1'
+    compile 'com.google.code.gson:gson:1.7.2'
+
 }

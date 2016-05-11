@@ -1,15 +1,10 @@
 package com.mindmac.eagleeye.activity;
-import android.app.Activity;
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
@@ -164,7 +159,7 @@ public class AppActivity extends BaseActivity implements SwitchCompat.OnCheckedC
         if (requestCode == UNINSTALL_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 Log.i("App", "OK");
-                Intent intent = new Intent(AppActivity.this, MainActivity.class);
+                Intent intent = new Intent(AppActivity.this, AppListActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 finish();
                 startActivity(intent);

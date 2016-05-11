@@ -52,7 +52,7 @@ public class AppListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         AppViewHolder holder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.app_layout, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.app_list_layout, null);
             holder = new AppViewHolder(convertView);
             convertView.setTag(holder);
         }else{

@@ -1,139 +1,154 @@
 package com.mindmac.eagleeye.activity;
 
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.AsyncTask;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.mindmac.eagleeye.R;
-import com.mindmac.eagleeye.adpater.AppListAdapter;
-import com.mindmac.eagleeye.entity.AppInfo;
-import com.pnikosis.materialishprogress.ProgressWheel;
+import com.mindmac.eagleeye.entity.LogEntity;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.builder.OkHttpRequestBuilder;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
+import okhttp3.Call;
 
-public class MainActivity extends BaseActivity {
+/**
+ * Created by Fridge on 16/5/10.
+ */
+public class MainActivity extends BaseActivity implements View.OnClickListener{
 
-    //view
+    private ListView mainList;
+    private WelcomeItem item_app_list = new WelcomeItem("App设置", "查看和设置监控开关");
+    private WelcomeItem item_test = new WelcomeItem("测试","测试");
 
-    private List<AppInfo> appList;
-    private ListView listView;
-    private AppListAdapter adapter;
-    private ProgressWheel progressWheel;
-    private Toolbar toolbar;
-
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     protected void initVariables() {
+
     }
 
     @Override
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("App设置");
-        setSupportActionBar(toolbar);
-        listView = (ListView) findViewById(R.id.lv_app_list);
-        listView.setDivider(null);
-        progressWheel = (ProgressWheel) findViewById(R.id.progress);
+        mainList = (ListView) findViewById(R.id.lv_main_list);
+        mainList.setAdapter(new WelcomeAdapter(this));
+        TextView tutorial = (TextView) findViewById(R.id.txtTutorial);
+        tutorial.setText(Html.fromHtml("欢迎使用<b>Low监测工具</b><br/>请选择你想要进行的操作:"));
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(null);
+        toolbar.setTitle("LowManager");
     }
 
     @Override
     protected void loadData() {
-        //// TODO: 16/4/23 读取设置文件
-        new getInstalledApps().execute();
     }
 
+    private class WelcomeItem{
+        public WelcomeItem(String mainTitle, String des) {
+            this.title = mainTitle;
+            this.des = des;
+        }
 
-    class getInstalledApps extends AsyncTask<Void, String, Void> {
-        private Integer actualApps;
-        private Integer totalApps;
-        public getInstalledApps() {
-            actualApps = 0;
-            totalApps = 0;
-            appList = new ArrayList<>();
+        
+        private String title;
+        private String des;
+    }
+
+    private class WelcomeAdapter extends BaseAdapter{
+        private ArrayList<WelcomeItem> itemArrayList;
+        private Context mContext;
+
+
+
+        public WelcomeAdapter(Context mContext) {
+            this.mContext = mContext;
+            itemArrayList = new ArrayList<>();
+            itemArrayList.add(item_app_list);
+            itemArrayList.add(item_test);
+
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
-            final PackageManager packageManager = getPackageManager();
-            List<PackageInfo> packages = packageManager.getInstalledPackages(PackageManager.GET_META_DATA);
-            totalApps = packages.size();
-            // Get Sort Mode
-            // Comparator by Name (default)
-            Collections.sort(packages, new Comparator<PackageInfo>() {
-                @Override
-                public int compare(PackageInfo p1, PackageInfo p2) {
-                    return packageManager.getApplicationLabel(p1.applicationInfo).toString().toLowerCase().compareTo(packageManager.getApplicationLabel(p2.applicationInfo).toString().toLowerCase());
-                }
-            });
+        public int getCount() {
+            return itemArrayList.size();
+        }
 
-            // Installed & System Apps
-            for (PackageInfo packageInfo : packages) {
-                if (!(packageManager.getApplicationLabel(packageInfo.applicationInfo).equals("") || packageInfo.packageName.equals(""))) {
+        @Override
+        public Object getItem(int position) {
+            return itemArrayList.get(position);
+        }
 
-                    if ((packageInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
-                        try {
-                            // Non System Apps
-                            AppInfo tempApp = new AppInfo(packageManager.getApplicationLabel(packageInfo.applicationInfo).toString(), packageInfo.packageName, packageInfo.versionName, packageInfo.applicationInfo.sourceDir, packageInfo.applicationInfo.dataDir, packageManager.getApplicationIcon(packageInfo.applicationInfo), false, packageInfo.applicationInfo.uid);
-                            appList.add(tempApp);
-                        } catch (OutOfMemoryError e) {
-                            //TODO Workaround to avoid FC on some devices (OutOfMemoryError). Drawable should be cached before.
-                            AppInfo tempApp = new AppInfo(packageManager.getApplicationLabel(packageInfo.applicationInfo).toString(), packageInfo.packageName, packageInfo.versionName, packageInfo.applicationInfo.sourceDir, packageInfo.applicationInfo.dataDir, getResources().getDrawable(R.drawable.ic_android), false, packageInfo.applicationInfo.uid);
-                            appList.add(tempApp);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.main_list_layout,null);
+            convertView.setOnClickListener(MainActivity.this);
+            TextView tittle = (TextView)convertView.findViewById(R.id.txtTitle);
+            TextView des = (TextView) convertView.findViewById(R.id.txtDes);
+            
+            tittle.setText(itemArrayList.get(position).title);
+            des.setText(itemArrayList.get(position).des);
+            convertView.setTag(itemArrayList.get(position));
+            convertView.setOnClickListener(MainActivity.this);
+            return convertView;
+        }
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        WelcomeItem item = (WelcomeItem)v.getTag();
+        if(item == item_app_list){
+            Intent intent = new Intent(MainActivity.this, AppListActivity.class);
+            startActivity(intent);
+        }else if(item == item_test){
+            test();
+        }
+    }
+    
+    
+    private void test(){
+        String url = "http://10.205.3.131:8000/log/";
+        LogEntity logEntity = new LogEntity();
+        logEntity.apkName = "shit";
+
+
+        OkHttpUtils
+                .postString()
+                .url(url)
+                .content(new Gson().toJson(logEntity))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e) {
+                        Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
                     }
-//                    else {
 
-//                        try {
-//                            // System Apps
-//                            AppInfo tempApp = new AppInfo(packageManager.getApplicationLabel(packageInfo.applicationInfo).toString(), packageInfo.packageName, packageInfo.versionName, packageInfo.applicationInfo.sourceDir, packageInfo.applicationInfo.dataDir, packageManager.getApplicationIcon(packageInfo.applicationInfo), true);
-//                            appSystemList.add(tempApp);
-//                        } catch (OutOfMemoryError e) {
-//                            //TODO Workaround to avoid FC on some devices (OutOfMemoryError). Drawable should be cached before.
-//                            AppInfo tempApp = new AppInfo(packageManager.getApplicationLabel(packageInfo.applicationInfo).toString(), packageInfo.packageName, packageInfo.versionName, packageInfo.applicationInfo.sourceDir, packageInfo.applicationInfo.dataDir, getResources().getDrawable(R.drawable.ic_android), false);
-//                            appSystemList.add(tempApp);
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-                }
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
 
-                actualApps++;
-                publishProgress(Double.toString((actualApps * 100) / totalApps));
-            }
-            return null;
-        }
-
-        @Override
-        protected void onProgressUpdate(String... progress) {
-            super.onProgressUpdate(progress);
-            progressWheel.setProgress(Float.parseFloat(progress[0]));
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-
-            adapter = new AppListAdapter(MainActivity.this);
-            adapter.setList(appList);
-            listView.setAdapter(adapter);
-            progressWheel.setVisibility(View.GONE);
-
-        }
-
+                    }
+                });
     }
-
-
-
 }

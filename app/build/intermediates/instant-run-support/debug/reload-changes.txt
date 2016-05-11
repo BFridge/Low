@@ -1,2 +1,5 @@
-CHANGED,/Users/Fridge/hook/EagleEye/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/mindmac/eagleeye/utils/LowLog$override.class
+CHANGED,/Users/Fridge/hook/EagleEye/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/mindmac/eagleeye/activity/MainActivity$WelcomeAdapter$override.class
 CHANGED,/Users/Fridge/hook/EagleEye/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
+CHANGED,/Users/Fridge/hook/EagleEye/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/mindmac/eagleeye/activity/MainActivity$override.class
+CHANGED,/Users/Fridge/hook/EagleEye/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/mindmac/eagleeye/activity/MainActivity$WelcomeItem$override.class
+CHANGED,/Users/Fridge/hook/EagleEye/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/mindmac/eagleeye/activity/MainActivity$1$override.class

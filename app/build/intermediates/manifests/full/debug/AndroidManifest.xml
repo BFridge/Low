@@ -9,6 +9,8 @@
         android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -37,6 +39,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.mindmac.eagleeye.activity.AppActivity" />
+        <activity android:name="com.mindmac.eagleeye.activity.AppListActivity" />
     </application>
 
 </manifest>
