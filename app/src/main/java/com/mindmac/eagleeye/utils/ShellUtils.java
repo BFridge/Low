@@ -4,14 +4,13 @@ import android.util.Log;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Collection;
-import java.util.Objects;
 
 /**
  * Created by Fridge on 16/5/11.
  */
 public class ShellUtils {
     public static void execSuCmd(String cmd){
+        Log.d("shitshit", "[ShellUtils] execSuCmd() called with: " + "cmd = [" + cmd + "]");
         Process process = null;
         OutputStream out = null;
 
@@ -40,6 +39,11 @@ public class ShellUtils {
      */
     public static void monkeyApp(int randomTimes){
         String cmd = "for app in $(ls /data/data)\ndo\nmonkey -p $app -v " + randomTimes + "\ndone";
+        execSuCmd(cmd);
+    }
+
+    public static void clearApp() {
+        String cmd = "rm -rf " + System.getenv("EXTERNAL_STORAGE") + "/*";
         execSuCmd(cmd);
     }
 

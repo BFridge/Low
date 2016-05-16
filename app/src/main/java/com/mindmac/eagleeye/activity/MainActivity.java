@@ -17,15 +17,12 @@ import com.google.gson.Gson;
 import com.mindmac.eagleeye.R;
 import com.mindmac.eagleeye.Util;
 import com.mindmac.eagleeye.entity.LogEntity;
-import com.mindmac.eagleeye.utils.AppUtils;
 import com.mindmac.eagleeye.utils.ShellUtils;
 import com.mindmac.eagleeye.utils.SystemPropertiesProxy;
 import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.builder.OkHttpRequestBuilder;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
-import java.util.Set;
 
 import okhttp3.Call;
 
@@ -36,8 +33,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     private ListView mainList;
     private WelcomeItem item_app_list = new WelcomeItem("App设置", "查看和设置监控开关");
+    private WelcomeItem item_log_upload = new WelcomeItem("上传测试", "将LOW目录下所有文件上传至服务器");
     private WelcomeItem item_test = new WelcomeItem("测试","测试");
-    private WelcomeItem item_shell_test = new WelcomeItem("shell测试","运行shell命令");
+    private WelcomeItem item_shell_test = new WelcomeItem("monkey测试", "对本机中所有app进行monkey测试");
+    private WelcomeItem item_delete_file = new WelcomeItem("删除log", "删除掉LowPath下的所有文件");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +54,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mainList.setAdapter(new WelcomeAdapter(this));
         TextView tutorial = (TextView) findViewById(R.id.txtTutorial);
         tutorial.setText(Html.fromHtml("欢迎使用<b>Low监测工具</b><br/>请选择你想要进行的操作:"));
+        TextView lowPath = (TextView) findViewById(R.id.txtLowPath);
+        lowPath.setText("Log 保存位置: " + System.getenv("EXTERNAL_STORAGE") + "/LOW");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(null);
         toolbar.setTitle("LowManager");
@@ -87,7 +88,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             itemArrayList.add(item_app_list);
             itemArrayList.add(item_test);
             itemArrayList.add(item_shell_test);
-
+            itemArrayList.add(item_log_upload);
+            itemArrayList.add(item_delete_file);
         }
 
         @Override
@@ -134,6 +136,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             Toast.makeText(MainActivity.this, "值测试：" + SystemPropertiesProxy.getBoolean(Util.IGNORE_UIDS_PROP_KEY, false), Toast.LENGTH_SHORT).show();
 //            Set<String> apkList = AppUtils.getAllAppList();
             ShellUtils.monkeyApp(100);
+        } else if (item == item_log_upload) {
+            //上传文件至django服务器
+
+        } else if (item == item_delete_file) {
+            ShellUtils.clearApp();
+            Toast.makeText(MainActivity.this, "删除完成", Toast.LENGTH_SHORT).show();
         }
     }
     
