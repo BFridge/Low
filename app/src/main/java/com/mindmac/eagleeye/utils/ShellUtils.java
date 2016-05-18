@@ -2,8 +2,11 @@ package com.mindmac.eagleeye.utils;
 
 import android.util.Log;
 
+import com.mindmac.eagleeye.Util;
+
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Set;
 
 /**
  * Created by Fridge on 16/5/11.
@@ -38,12 +41,21 @@ public class ShellUtils {
      * @param randomTimes -vvv randomTimes
      */
     public static void monkeyApp(int randomTimes){
-        String cmd = "for app in $(ls /data/data)\ndo\nmonkey -p $app -v " + randomTimes + "\ndone";
+//        String cmd = "for app in $(ls /data/data)\ndo\nmonkey -p $app -v " + randomTimes + "\ndone";
+        Set<String> appSet = AppUtils.getAllAppList();
+        Log.i("shitshit", "[ShellUtils] : " + appSet);
+        String cmd = "monkey ";
+        for (String s : appSet) {
+            if (s.equals("de.robv.android.xposed.installer") || s.equals(Util.SELF_PACKAGE_NAME)) {
+                continue;
+            }
+            cmd += " -p " + s + " -v  " + randomTimes;
+        }
         execSuCmd(cmd);
     }
 
     public static void clearApp() {
-        String cmd = "rm -rf " + System.getenv("EXTERNAL_STORAGE") + "/*";
+        String cmd = "rm -rf " + System.getenv("EXTERNAL_STORAGE") + "/LOW/*";
         execSuCmd(cmd);
     }
 

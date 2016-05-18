@@ -135,7 +135,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             ShellUtils.setProp(Util.IGNORE_UIDS_PROP_KEY, true);
             Toast.makeText(MainActivity.this, "值测试：" + SystemPropertiesProxy.getBoolean(Util.IGNORE_UIDS_PROP_KEY, false), Toast.LENGTH_SHORT).show();
 //            Set<String> apkList = AppUtils.getAllAppList();
-            ShellUtils.monkeyApp(100);
+            ShellUtils.monkeyApp(200);
         } else if (item == item_log_upload) {
             //上传文件至django服务器
 

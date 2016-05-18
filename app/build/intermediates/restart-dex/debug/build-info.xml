@@ -4,29 +4,44 @@
     api-level="19"
     density="xhdpi"
     format="7"
-    timestamp="17893701330590" >
+    timestamp="89957918070041"
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="735" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="552" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="14" />
     <task
         name="verifier"
-        duration="0" />
+        duration="2" />
 
     <artifact
-        location="/Users/Fridge/hook/EagleEye/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="/Users/Fridge/hook/EagleEye/app/build/intermediates/reload-dex/debug/classes.dex"
+        type="RELOAD_DEX" />
 
-    <build timestamp="17893701330590" >
+    <build timestamp="89396816195141" >
         <artifact
             location="/Users/Fridge/hook/EagleEye/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="89446902296175"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/Fridge/hook/EagleEye/app/build/intermediates/builds/debug/89446902296175/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="89957918070041"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/Fridge/hook/EagleEye/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>
