@@ -1,5 +1,12 @@
 package com.mindmac.eagleeye;
 
+import android.content.Context;
+import android.content.res.AssetManager;
+import android.os.Environment;
+
+import com.mindmac.eagleeye.utils.AppUtils;
+import com.mindmac.eagleeye.utils.SystemPropertiesProxy;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,13 +22,6 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-
-import android.content.Context;
-import android.content.res.AssetManager;
-import android.os.Environment;
-
-import com.mindmac.eagleeye.utils.SystemPropertiesProxy;
-import com.mindmac.eagleeye.utils.AppUtils;
 
 public class Util {
 	public static final String SELF_PACKAGE_NAME = "com.mindmac.eagleeye";
@@ -123,7 +123,7 @@ public class Util {
 			}catch(Exception ex){
 				ex.printStackTrace();
 			}
-        File configure = AppUtils.getConfigureFile();
+        File configure = AppUtils.getHookedAppConfigure();
         BufferedReader reader = null;
         try{
             reader = new BufferedReader(new FileReader(configure));
@@ -144,7 +144,7 @@ public class Util {
     }
 
     public static void addFrameworkLogAppUids(int targetUid){
-        File configure = AppUtils.getConfigureFile();
+        File configure = AppUtils.getHookedAppConfigure();
         BufferedWriter writer = null;
         try{
             writer = new BufferedWriter(new FileWriter(configure, true));

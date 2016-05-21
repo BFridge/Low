@@ -2,6 +2,7 @@ package com.mindmac.eagleeye.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
@@ -17,6 +18,7 @@ import com.google.gson.Gson;
 import com.mindmac.eagleeye.R;
 import com.mindmac.eagleeye.Util;
 import com.mindmac.eagleeye.entity.LogEntity;
+import com.mindmac.eagleeye.utils.AppUtils;
 import com.mindmac.eagleeye.utils.ShellUtils;
 import com.mindmac.eagleeye.utils.SystemPropertiesProxy;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -34,7 +36,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private ListView mainList;
     private WelcomeItem item_app_list = new WelcomeItem("App设置", "查看和设置监控开关");
     private WelcomeItem item_log_upload = new WelcomeItem("上传测试", "将LOW目录下所有文件上传至服务器");
-    private WelcomeItem item_test = new WelcomeItem("测试","测试");
+    private WelcomeItem item_custom = new WelcomeItem("自定义Hook", "可以自定义需要hook的api");
     private WelcomeItem item_shell_test = new WelcomeItem("monkey测试", "对本机中所有app进行monkey测试");
     private WelcomeItem item_delete_file = new WelcomeItem("删除log", "删除掉LowPath下的所有文件");
     @Override
@@ -86,7 +88,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             this.mContext = mContext;
             itemArrayList = new ArrayList<>();
             itemArrayList.add(item_app_list);
-            itemArrayList.add(item_test);
+            itemArrayList.add(item_custom);
             itemArrayList.add(item_shell_test);
             itemArrayList.add(item_log_upload);
             itemArrayList.add(item_delete_file);
@@ -129,8 +131,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         if(item == item_app_list){
             Intent intent = new Intent(MainActivity.this, AppListActivity.class);
             startActivity(intent);
-        }else if(item == item_test){
-            test();
+        } else if (item == item_custom) {
+            Intent intent = new Intent(Intent.ACTION_EDIT);
+            intent.setDataAndType(Uri.fromFile(AppUtils.getConfigFile(Util.FRAMEWORK_SYSTEM_API_HOOK_CONFIG)), "text/plain");
+            startActivity(intent);
         }else if(item == item_shell_test){
             ShellUtils.setProp(Util.IGNORE_UIDS_PROP_KEY, true);
             Toast.makeText(MainActivity.this, "值测试：" + SystemPropertiesProxy.getBoolean(Util.IGNORE_UIDS_PROP_KEY, false), Toast.LENGTH_SHORT).show();

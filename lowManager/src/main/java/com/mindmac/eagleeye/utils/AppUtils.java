@@ -7,19 +7,14 @@ import android.net.Uri;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 
-import com.mindmac.eagleeye.Util;
 import com.mindmac.eagleeye.application.LowApplication;
 import com.mindmac.eagleeye.entity.AppInfo;
 import com.mindmac.eagleeye.entity.AppPreferences;
-import com.mindmac.eagleeye.hookclass.SystemPropertiesHook;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -250,7 +245,7 @@ public class AppUtils {
             dir.mkdirs();
         }
 
-        File logFile = new File(SystemPropertiesProxy.get(LOW_PATH),packageName + ".txt");
+        File logFile = new File(dir, packageName + ".txt");
         if(!logFile.exists()){
             try {
                 logFile.createNewFile();
@@ -261,12 +256,30 @@ public class AppUtils {
         return logFile;
     }
 
-    public static File getConfigureFile(){
-        return getLogFile("LOW_CONFIG");
+    public static File getConfigFile(String configure) {
+        File dir = new File(SystemPropertiesProxy.get(LOW_PATH) + "/config");
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+
+        File logFile = new File(dir, configure);
+        if (!logFile.exists()) {
+            try {
+                logFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return logFile;
+    }
+
+
+    public static File getHookedAppConfigure() {
+        return getConfigFile("LOW_CONFIG");
     }
 
     public static boolean isAppConfigured(String uid){
-        File configure = getConfigureFile();
+        File configure = getHookedAppConfigure();
         BufferedReader reader = null;
         boolean result = false;
         try{

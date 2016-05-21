@@ -1,12 +1,57 @@
 package com.mindmac.eagleeye.service;
 
-import static de.robv.android.xposed.XposedHelpers.findClass;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.os.Binder;
+import android.os.Build;
+import android.os.Process;
+import android.util.Log;
 
 import com.mindmac.eagleeye.MethodParser;
 import com.mindmac.eagleeye.Util;
-import com.mindmac.eagleeye.hookclass.*;
-import com.mindmac.eagleeye.utils.LowLog;
+import com.mindmac.eagleeye.hookclass.AbstractHttpClientHook;
+import com.mindmac.eagleeye.hookclass.AccountManagerHook;
+import com.mindmac.eagleeye.hookclass.ActivityHook;
+import com.mindmac.eagleeye.hookclass.ActivityManagerHook;
+import com.mindmac.eagleeye.hookclass.ActivityThreadHook;
+import com.mindmac.eagleeye.hookclass.ApplicationHook;
+import com.mindmac.eagleeye.hookclass.ApplicationPackageManagerHook;
+import com.mindmac.eagleeye.hookclass.AudioRecordHook;
+import com.mindmac.eagleeye.hookclass.BaseDexClassLoaderHook;
+import com.mindmac.eagleeye.hookclass.BluetoothAdapterHook;
+import com.mindmac.eagleeye.hookclass.BluetoothSocketHook;
+import com.mindmac.eagleeye.hookclass.BroadcastReceiverHook;
+import com.mindmac.eagleeye.hookclass.CameraHook;
+import com.mindmac.eagleeye.hookclass.CipherHook;
+import com.mindmac.eagleeye.hookclass.ClassLoaderHook;
+import com.mindmac.eagleeye.hookclass.ConnectivityManagerHook;
+import com.mindmac.eagleeye.hookclass.ContentResolverHook;
+import com.mindmac.eagleeye.hookclass.ContextImplHook;
+import com.mindmac.eagleeye.hookclass.FileHook;
+import com.mindmac.eagleeye.hookclass.InetAddressHook;
+import com.mindmac.eagleeye.hookclass.InstrumentationHook;
+import com.mindmac.eagleeye.hookclass.IoBridgeHook;
+import com.mindmac.eagleeye.hookclass.LocationManagerHook;
+import com.mindmac.eagleeye.hookclass.MediaRecorderHook;
+import com.mindmac.eagleeye.hookclass.MethodHook;
+import com.mindmac.eagleeye.hookclass.NetworkInterfaceHook;
+import com.mindmac.eagleeye.hookclass.NotificationManagerHook;
+import com.mindmac.eagleeye.hookclass.PackageManagerHook;
+import com.mindmac.eagleeye.hookclass.PowerManagerHook;
+import com.mindmac.eagleeye.hookclass.ProcessBuilderHook;
+import com.mindmac.eagleeye.hookclass.ProcessHook;
+import com.mindmac.eagleeye.hookclass.RuntimeHook;
+import com.mindmac.eagleeye.hookclass.SecretKeySpecHook;
+import com.mindmac.eagleeye.hookclass.SettingsSecureHook;
+import com.mindmac.eagleeye.hookclass.SmsManagerHook;
+import com.mindmac.eagleeye.hookclass.SystemPropertiesHook;
+import com.mindmac.eagleeye.hookclass.TelephonyManagerHook;
+import com.mindmac.eagleeye.hookclass.URLHook;
+import com.mindmac.eagleeye.hookclass.WebViewHook;
+import com.mindmac.eagleeye.hookclass.WifiManagerHook;
 import com.mindmac.eagleeye.utils.AppUtils;
+import com.mindmac.eagleeye.utils.LowLog;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -24,13 +69,6 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.os.Binder;
-import android.os.Build;
-import android.os.Process;
-import android.util.Log;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.IXposedHookZygoteInit;
 import de.robv.android.xposed.XC_MethodHook;
@@ -39,6 +77,8 @@ import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.XposedHelpers.ClassNotFoundError;
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
+
+import static de.robv.android.xposed.XposedHelpers.findClass;
 
 // This class will be called by Xposed
 @SuppressLint("DefaultLocale")
@@ -307,9 +347,8 @@ public class Launcher implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 
     // Hook customized system apis
 	private static void hookCustomizedSystemApis(){
-		File systemApiConfigFile = new File(String.format("/data/local/tmp/%s", 
-				Util.FRAMEWORK_SYSTEM_API_HOOK_CONFIG));
-		if(!systemApiConfigFile.exists())
+        File systemApiConfigFile = AppUtils.getConfigFile(Util.FRAMEWORK_SYSTEM_API_HOOK_CONFIG);
+        if(!systemApiConfigFile.exists())
 			return;
 				
 		Util.FRAMEWORK_SYSTEM_API_NUM = getSystemApiNumLimit();
@@ -326,17 +365,15 @@ public class Launcher implements IXposedHookLoadPackage, IXposedHookZygoteInit {
 	
 	// Hook customized app apis
 	private static void setCustomNativeHookLibNames(String packageName){
-		File nativeLibNamesConfig = new File(String.format("/data/data/%s/%s", 
-				packageName, Util.CUSTOM_NATIVE_LIB_NAMES_CONFIG));
-		if(!nativeLibNamesConfig.exists())
+        File nativeLibNamesConfig = AppUtils.getConfigFile(Util.CUSTOM_NATIVE_LIB_NAMES_CONFIG);
+        if(!nativeLibNamesConfig.exists())
 			return;
 		storeNativeLibNames(nativeLibNamesConfig.getAbsolutePath());
 	}
 	
 	private static void hookCustomizedAppApis(String packageName, ClassLoader classLoader){
-		File appApiConfigFile = new File(String.format("/data/data/%s/%s", 
-				packageName, Util.FRAMEWORK_APP_API_HOOK_CONFIG));
-		if(!appApiConfigFile.exists())
+        File appApiConfigFile = AppUtils.getConfigFile(Util.FRAMEWORK_APP_API_HOOK_CONFIG);
+        if(!appApiConfigFile.exists())
 			return;
 				
 		Util.FRAMEWORK_APP_API_NUM = getAppApiNumLimit();

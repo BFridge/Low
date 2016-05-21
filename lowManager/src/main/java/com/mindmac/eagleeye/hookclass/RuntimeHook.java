@@ -1,12 +1,13 @@
 package com.mindmac.eagleeye.hookclass;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.os.Binder;
 
 import com.mindmac.eagleeye.NativeEntry;
 import com.mindmac.eagleeye.Util;
-import android.os.Binder;
-import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import de.robv.android.xposed.XC_MethodHook.MethodHookParam;
 
 
@@ -81,8 +82,8 @@ public class RuntimeHook extends MethodHook {
 				}
 			}
 		}else if(mMethod == Methods.exec){
-			if(param.args[0] instanceof String[] && param.args.length == 3){
-				log(uid, param, argNames);
+            if (param.args[0] instanceof String[] /*&& param.args.length == 3*/) {
+                log(uid, param, argNames);
 			}
 		}	
 	}
